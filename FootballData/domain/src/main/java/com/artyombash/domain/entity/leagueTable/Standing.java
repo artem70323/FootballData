@@ -48,7 +48,7 @@ public class Standing {
         this.teamName = teamName;
     }
 
-    public Object getCrestURI() {
+    public String getCrestURI() {
         return crestURI;
     }
 

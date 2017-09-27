@@ -27,6 +27,7 @@ public class MainActivity extends BaseActivity {
         binding.setViewModel(viewModel);
         binding.recyclerView.setLayoutManager(new LinearLayoutManager(this));
         binding.recyclerView.setAdapter(viewModel.adapter);
+        binding.recyclerView.setHasFixedSize(true);
 
         super.onCreate(savedInstanceState);
     }

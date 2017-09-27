@@ -22,55 +22,55 @@
 
         <TextView
             android:id="@+id/caption"
-            style="@style/AppTheme.TextViewTitle"
+            style="@style/AppTheme.TextViewHeader"
             android:text="@{`Caption: ` + competition.caption}" />
 
 
         <TextView
             android:id="@+id/league"
-            style="@style/AppTheme.TextViewTitle"
+            style="@style/AppTheme.TextViewHeader"
             android:layout_below="@+id/caption"
             android:text="@{`League: ` + competition.league}" />
 
 
         <TextView
             android:id="@+id/year"
-            style="@style/AppTheme.TextViewTitle"
+            style="@style/AppTheme.TextViewHeader"
             android:layout_below="@+id/league"
             android:text="@{`Year: ` + competition.year}" />
 
 
         <TextView
             android:id="@+id/currentMatchday"
-            style="@style/AppTheme.TextViewTitle"
+            style="@style/AppTheme.TextViewHeader"
             android:layout_below="@+id/year"
             android:text="@{`Current Matchday: ` + competition.currentMatchday}" />
 
 
         <TextView
             android:id="@+id/numberOfMatchdays"
-            style="@style/AppTheme.TextViewTitle"
+            style="@style/AppTheme.TextViewHeader"
             android:layout_below="@+id/currentMatchday"
             android:text="@{`Number Of Matchdays: ` + competition.numberOfMatchdays}" />
 
 
         <TextView
             android:id="@+id/numberOfTeams"
-            style="@style/AppTheme.TextViewTitle"
+            style="@style/AppTheme.TextViewHeader"
             android:layout_below="@+id/numberOfMatchdays"
             android:text="@{`Number Of Teams: ` + competition.numberOfTeams}" />
 
 
         <TextView
             android:id="@+id/numberOfGames"
-            style="@style/AppTheme.TextViewTitle"
+            style="@style/AppTheme.TextViewHeader"
             android:layout_below="@+id/numberOfTeams"
             android:text="@{`Number Of Games: ` + competition.numberOfGames}" />
 
 
         <TextView
             android:id="@+id/lastUpdated"
-            style="@style/AppTheme.TextViewTitle"
+            style="@style/AppTheme.TextViewHeader"
             android:layout_below="@+id/numberOfGames"
             android:text="@{`Last Updated: ` + competition.lastUpdated}" />
 
@@ -79,7 +79,9 @@
             android:layout_width="100dp"
             android:layout_height="wrap_content"
             android:layout_below="@+id/lastUpdated"
+            android:onClick="@{() -> handler.getTeams(competition.id.get())}"
             android:text="@string/teams" />
+
 
         <Button
             android:id="@+id/leagueTableButton"

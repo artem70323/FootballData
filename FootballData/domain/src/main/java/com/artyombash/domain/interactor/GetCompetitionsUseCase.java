@@ -1,6 +1,5 @@
 package com.artyombash.domain.interactor;
 
-
 import com.artyombash.domain.entity.Competition;
 import com.artyombash.domain.executor.PostExecutionThread;
 import com.artyombash.domain.executor.ThreadExecutor;
@@ -16,13 +15,14 @@ import io.reactivex.Observable;
  * This class is an implementation of {@link UseCase} that represents a use case for
  * retrieving a collection of all {@link Competition}.
  */
-public class GetCompetitions extends UseCase<Void, List<Competition>> {
+public class GetCompetitionsUseCase extends UseCase<Void, List<Competition>> {
 
     private final FootballRepository repository;
 
     @Inject
-    public GetCompetitions(ThreadExecutor threadExecutor, PostExecutionThread postExecutionThread,
-                           FootballRepository repository) {
+    public GetCompetitionsUseCase(ThreadExecutor threadExecutor,
+                                  PostExecutionThread postExecutionThread,
+                                  FootballRepository repository) {
         super(threadExecutor, postExecutionThread);
         this.repository = repository;
     }

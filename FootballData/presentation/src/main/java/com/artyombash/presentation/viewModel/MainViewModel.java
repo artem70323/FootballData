@@ -4,7 +4,7 @@ import android.databinding.ObservableField;
 import android.util.Log;
 
 import com.artyombash.domain.entity.Competition;
-import com.artyombash.domain.interactor.GetCompetitions;
+import com.artyombash.domain.interactor.GetCompetitionsUseCase;
 import com.artyombash.presentation.adapter.CompetitionAdapter;
 import com.artyombash.presentation.base.BaseViewModel;
 
@@ -18,32 +18,29 @@ import io.reactivex.observers.DisposableObserver;
 public class MainViewModel implements BaseViewModel {
 
     public enum STATE {PROGRESS, DATA}
+
     public ObservableField<STATE> state = new ObservableField<>(STATE.PROGRESS);
 
-    private GetCompetitions getCompetitions;
+    private GetCompetitionsUseCase getCompetitionsUseCase;
     public CompetitionAdapter adapter = new CompetitionAdapter();
 
     @Inject
-    public MainViewModel(GetCompetitions getCompetitions) {
-        this.getCompetitions = getCompetitions;
+    public MainViewModel(GetCompetitionsUseCase getCompetitionsUseCase) {
+        this.getCompetitionsUseCase = getCompetitionsUseCase;
     }
 
     @Override
-    public void init() {
-
-    }
+    public void init() {}
 
     @Override
     public void resume() {
 
-        getCompetitions.execute
+        getCompetitionsUseCase.execute
                 (null, new DisposableObserver<List<Competition>>() {
 
                     @Override
                     public void onNext(@NonNull List<Competition> competitions) {
                         adapter.setItems(competitions);
-                        state.set(STATE.DATA);
-                        Log.e("Competition", competitions.get(0).getLastUpdated());
                     }
 
                     @Override
@@ -53,18 +50,17 @@ public class MainViewModel implements BaseViewModel {
 
                     @Override
                     public void onComplete() {
-                        Log.e("onComplete", "Complete");
+                        state.set(STATE.DATA);
                     }
                 });
     }
 
     @Override
-    public void pause() {
-
-    }
+    public void pause() {}
 
     @Override
     public void destroy() {
-
+        getCompetitionsUseCase.dispose();
     }
+
 }

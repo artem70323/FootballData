@@ -43,16 +43,16 @@ public class CloudDataStore implements DataStore{
 
     @Override
     public Observable<TeamsData> teamsData(int competitionId) {
-        return null;
+        return restService.getTeams(competitionId);
     }
 
     @Override
     public Observable<LeagueTableData> leagueTableData(int competitionId) {
-        return null;
+        return restService.getLeagueTable(competitionId);
     }
 
     @Override
     public Observable<FixturesData> fixturesData(int competitionId) {
-        return null;
+        return restService.getFixtures(competitionId);
     }
 }

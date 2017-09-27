@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="team"
+            type="com.artyombash.presentation.viewModel.teams.TeamsItemViewModel" />
+
+    </data>
+
+    <RelativeLayout xmlns:app="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="#55ffffff">
+
+        <com.facebook.drawee.view.SimpleDraweeView xmlns:fresco="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/crestUrl"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:imageUrl="@{team.imageUrl}"
+
+            fresco:actualImageScaleType="fitXY"
+            fresco:failureImage="@color/colorNoTeam"
+            fresco:progressBarAutoRotateInterval="1000"
+            fresco:progressBarImage="@drawable/red_spin"
+            fresco:progressBarImageScaleType="centerInside"
+            fresco:viewAspectRatio="1" />
+
+
+        <TextView
+            android:id="@+id/name"
+            style="@style/AppTheme.TextViewHeader"
+            android:layout_below="@+id/crestUrl"
+            android:text="@{`Name: ` + team.name}" />
+
+
+        <TextView
+            android:id="@+id/code"
+            style="@style/AppTheme.TextViewHeader"
+            android:layout_below="@+id/name"
+            android:text="@{`Code: ` + team.code}" />
+
+
+        <TextView
+            android:id="@+id/shortName"
+            style="@style/AppTheme.TextViewHeader"
+            android:layout_below="@+id/code"
+            android:text="@{`Short Name: ` + team.shortName}" />
+
+
+        <TextView
+            android:id="@+id/squadMarketValue"
+            style="@style/AppTheme.TextViewHeader"
+            android:layout_below="@+id/shortName"
+            android:text="@{`Squad Market Value: ` + team.squadMarketValue}" />
+
+    </RelativeLayout>
+
+</layout>

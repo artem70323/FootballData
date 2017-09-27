@@ -39,6 +39,9 @@ public class DataStoreFactory {
         return userDataStore;
     }
 
+    /**
+     * Get {@link DataStore} to retrieve data from the Cloud.
+     */
     public CloudDataStore getCloudDataStore() {
         return cloudDataStore;
     }

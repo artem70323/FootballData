@@ -9,6 +9,8 @@ import com.artyombash.presentation.di.AppModule;
 import com.artyombash.presentation.di.DaggerAppComponent;
 import com.squareup.leakcanary.LeakCanary;
 
+import io.realm.Realm;
+
 /**
  * Android Main Application.
  */
@@ -21,6 +23,7 @@ public class FootballApplication extends Application {
         super.onCreate();
         this.initializeInjector();
         this.initializeLeakDetection();
+        Realm.init(this);
     }
 
     private void initializeInjector() {
@@ -35,7 +38,10 @@ public class FootballApplication extends Application {
 
     private void initializeLeakDetection() {
 //        if (BuildConfig.DEBUG) {
-            LeakCanary.install(this);
+        if (LeakCanary.isInAnalyzerProcess(this)) {
+            return;
+        }
+        LeakCanary.install(this);
 //        }
     }
 

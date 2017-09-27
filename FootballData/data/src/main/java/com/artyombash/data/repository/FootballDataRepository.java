@@ -1,8 +1,10 @@
 package com.artyombash.data.repository;
 
 import com.artyombash.data.entity.CompetitionData;
+import com.artyombash.data.entity.leagueTable.LeagueTableData;
 import com.artyombash.data.entity.teams.TeamsData;
 import com.artyombash.data.entityMapper.CompetitionDataMapper;
+import com.artyombash.data.entityMapper.LeagueTableDataMapper;
 import com.artyombash.data.entityMapper.TeamsDataMapper;
 import com.artyombash.data.repository.datasource.DataStore;
 import com.artyombash.data.repository.datasource.DataStoreFactory;
@@ -30,20 +32,23 @@ public class FootballDataRepository implements FootballRepository{
     private final DataStoreFactory dataStoreFactory;
     private final CompetitionDataMapper competitionDataMapper;
     private final TeamsDataMapper teamsDataMapper;
+    private final LeagueTableDataMapper leagueTableDataMapper;
 
     /**
      * Constructs a {@link FootballRepository}.
-     *  @param dataStoreFactory A factory to construct different data source implementations.
+     * @param dataStoreFactory A factory to construct different data source implementations.
      * @param competitionDataMapper {@link CompetitionDataMapper}.
-     * @param teamsDataMapper
+     * @param teamsDataMapper {@link TeamsDataMapper}.
+     * @param leagueTableDataMapper {@link LeagueTableDataMapper}.
      */
     @Inject
     public FootballDataRepository(DataStoreFactory dataStoreFactory,
                                   CompetitionDataMapper competitionDataMapper,
-                                  TeamsDataMapper teamsDataMapper) {
+                                  TeamsDataMapper teamsDataMapper, LeagueTableDataMapper leagueTableDataMapper) {
         this.dataStoreFactory = dataStoreFactory;
         this.competitionDataMapper = competitionDataMapper;
         this.teamsDataMapper = teamsDataMapper;
+        this.leagueTableDataMapper = leagueTableDataMapper;
     }
 
     @Override
@@ -73,7 +78,14 @@ public class FootballDataRepository implements FootballRepository{
 
     @Override
     public Observable<LeagueTable> leagueTable(int competitionId) {
-        return null;
+        DataStore dataStore = this.dataStoreFactory.create(competitionId);
+        return dataStore.leagueTableData(competitionId)
+                .map(new Function<LeagueTableData, LeagueTable>() {
+                    @Override
+                    public LeagueTable apply(@NonNull LeagueTableData leagueTableData) throws Exception {
+                        return leagueTableDataMapper.transform(leagueTableData);
+                    }
+                });
     }
 
     @Override

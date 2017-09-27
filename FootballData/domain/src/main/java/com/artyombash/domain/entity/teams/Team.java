@@ -28,7 +28,7 @@ public class Team {
         this.name = name;
     }
 
-    public Object getCode() {
+    public String getCode() {
         return code;
     }
 
@@ -36,7 +36,7 @@ public class Team {
         this.code = code;
     }
 
-    public Object getShortName() {
+    public String getShortName() {
         return shortName;
     }
 
@@ -44,7 +44,7 @@ public class Team {
         this.shortName = shortName;
     }
 
-    public Object getSquadMarketValue() {
+    public String getSquadMarketValue() {
         return squadMarketValue;
     }
 
@@ -52,7 +52,7 @@ public class Team {
         this.squadMarketValue = squadMarketValue;
     }
 
-    public Object getCrestUrl() {
+    public String getCrestUrl() {
         return crestUrl;
     }
 

@@ -42,7 +42,7 @@ public class RestModule {
     @Singleton
     OkHttpClient provideOkHttpClient(HttpLoggingInterceptor logging) {
         return new OkHttpClient.Builder()
-                .readTimeout(10, TimeUnit.SECONDS)
+                .readTimeout(15, TimeUnit.SECONDS)
                 .connectTimeout(10, TimeUnit.SECONDS)
                 .addInterceptor(logging)
                 .build();

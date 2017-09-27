@@ -53,6 +53,8 @@ dependencies {
 
     annotationProcessor 'com.android.databinding:compiler:2.3.0'
 
+    compile 'com.facebook.fresco:fresco:1.5.0'
+
     debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.4'
     releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.4'
 

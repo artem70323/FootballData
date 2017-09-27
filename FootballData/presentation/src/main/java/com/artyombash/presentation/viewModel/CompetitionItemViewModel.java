@@ -12,10 +12,10 @@ public class CompetitionItemViewModel extends BaseItemViewModel<Competition> {
     public ObservableField<String> caption = new ObservableField<>("");
     public ObservableField<String> league = new ObservableField<>("");
     public ObservableField<String> year = new ObservableField<>("");
-    public ObservableField<Integer> currentMatchday = new ObservableField<>();
-    public ObservableField<Integer> numberOfMatchdays = new ObservableField<>();
-    public ObservableField<Integer> numberOfTeams = new ObservableField<>();
-    public ObservableField<Integer> numberOfGames = new ObservableField<>();
+    public ObservableInt currentMatchday = new ObservableInt();
+    public ObservableInt numberOfMatchdays = new ObservableInt();
+    public ObservableInt numberOfTeams = new ObservableInt();
+    public ObservableInt numberOfGames = new ObservableInt();
     public ObservableField<String> lastUpdated = new ObservableField<>("");
 
 
