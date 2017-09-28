@@ -3,10 +3,12 @@ package com.artyombash.data.entity.fixtures;
 
 import com.google.gson.annotations.SerializedName;
 
+import io.realm.RealmObject;
+
 /**
  * Link to AwayTeam.
  */
-public class AwayTeamData {
+public class AwayTeamData extends RealmObject {
 
     @SerializedName("href")
     private String href;

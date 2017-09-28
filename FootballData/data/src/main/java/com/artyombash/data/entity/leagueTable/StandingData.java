@@ -4,11 +4,13 @@ package com.artyombash.data.entity.leagueTable;
 import com.artyombash.data.entity.links.LinkToTeamData;
 import com.google.gson.annotations.SerializedName;
 
+import io.realm.RealmObject;
+
 /**
  * Show current standing.
  */
 
-public class StandingData {
+public class StandingData extends RealmObject {
 
     @SerializedName("_links")
     private LinkToTeamData links;

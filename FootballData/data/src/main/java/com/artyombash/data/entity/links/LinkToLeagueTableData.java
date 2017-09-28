@@ -2,11 +2,13 @@ package com.artyombash.data.entity.links;
 
 import com.google.gson.annotations.SerializedName;
 
+import io.realm.RealmObject;
+
 /**
  * Show League Table / current standing.
  */
 
-public class LinkToLeagueTableData {
+public class LinkToLeagueTableData extends RealmObject {
 
     @SerializedName("href")
     private String href;

@@ -2,10 +2,12 @@ package com.artyombash.data.entity.links;
 
 import com.google.gson.annotations.SerializedName;
 
+import io.realm.RealmObject;
+
 /**
  * Link to oneself.
  */
-public class LinkToSelfData {
+public class LinkToSelfData extends RealmObject {
 
     @SerializedName("href")
     private String href;

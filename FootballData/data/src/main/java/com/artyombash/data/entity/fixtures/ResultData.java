@@ -3,7 +3,9 @@ package com.artyombash.data.entity.fixtures;
 
 import com.google.gson.annotations.SerializedName;
 
-public class ResultData {
+import io.realm.RealmObject;
+
+public class ResultData extends RealmObject {
 
     @SerializedName("goalsHomeTeam")
     private Integer goalsHomeTeam;

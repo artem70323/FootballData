@@ -5,5 +5,9 @@
     <string name="teams">Teams</string>
     <string name="leagueTable">League Table</string>
     <string name="fixtures">Fixtures</string>
+    <string name="home">Home:</string>
+    <string name="away">Away:</string>
+    <string name="result">Result:</string>
+    <string name="halfTimeResult">Half time result:</string>
 
 </resources>

@@ -8,15 +8,15 @@ import com.artyombash.presentation.base.BaseItemViewModel;
 
 public class CompetitionItemViewModel extends BaseItemViewModel<Competition> {
 
-    public ObservableInt id = new ObservableInt();
-    public ObservableField<String> caption = new ObservableField<>("");
-    public ObservableField<String> league = new ObservableField<>("");
-    public ObservableField<String> year = new ObservableField<>("");
-    public ObservableInt currentMatchday = new ObservableInt();
-    public ObservableInt numberOfMatchdays = new ObservableInt();
-    public ObservableInt numberOfTeams = new ObservableInt();
-    public ObservableInt numberOfGames = new ObservableInt();
-    public ObservableField<String> lastUpdated = new ObservableField<>("");
+    public final ObservableInt id = new ObservableInt();
+    public final ObservableField<String> caption = new ObservableField<>("");
+    public final ObservableField<String> league = new ObservableField<>("");
+    public final ObservableField<String> year = new ObservableField<>("");
+    public final ObservableInt currentMatchday = new ObservableInt();
+    public final ObservableInt numberOfMatchdays = new ObservableInt();
+    public final ObservableInt numberOfTeams = new ObservableInt();
+    public final ObservableInt numberOfGames = new ObservableInt();
+    public final ObservableField<String> lastUpdated = new ObservableField<>("");
 
 
     @Override

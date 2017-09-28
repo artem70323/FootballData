@@ -10,7 +10,6 @@ import com.artyombash.presentation.R;
 import com.artyombash.presentation.base.BaseActivity;
 import com.artyombash.presentation.databinding.ActivityTeamsBinding;
 import com.artyombash.presentation.viewModel.teams.TeamsViewModel;
-import com.facebook.drawee.backends.pipeline.Fresco;
 
 import javax.inject.Inject;
 
@@ -23,7 +22,6 @@ public class TeamsActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         ((FootballApplication) getApplication()).getAppComponent().inject(this);
-        Fresco.initialize(this);
 
         super.viewModel = teamsViewModel;
         ActivityTeamsBinding binding = DataBindingUtil.setContentView(this, R.layout.activity_teams);

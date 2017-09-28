@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="fixtures"
+            type="com.artyombash.presentation.viewModel.fixtures.FixturesItemViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="#55ffffff">
+
+        <TextView
+            android:id="@+id/date"
+            style="@style/AppTheme.TextViewHeader"
+            android:text="@{`Date: ` + fixtures.date}" />
+
+
+        <TextView
+            android:id="@+id/status"
+            style="@style/AppTheme.TextViewHeader"
+            android:layout_below="@+id/date"
+            android:text="@{`Status: ` + fixtures.status}" />
+
+
+        <TextView
+            android:id="@+id/matchday"
+            style="@style/AppTheme.TextViewHeader"
+            android:layout_below="@+id/status"
+            android:text="@{`Matchday: ` + fixtures.matchday}" />
+
+        <TextView
+            android:id="@+id/homeTeamName"
+            style="@style/AppTheme.TextViewHeader"
+            android:layout_below="@+id/matchday"
+            android:text="@{`Home team name: ` + fixtures.homeTeamName}" />
+
+        <TextView
+            android:id="@+id/awayTeamName"
+            style="@style/AppTheme.TextViewHeader"
+            android:layout_below="@+id/homeTeamName"
+            android:text="@{`Away team name: ` + fixtures.awayTeamName}" />
+
+
+
+
+
+        <TextView
+            android:id="@+id/result"
+            style="@style/AppTheme.TextViewHeader"
+            android:layout_below="@+id/awayTeamName"
+            android:text="@string/result"
+            android:textColor="#158c29" />
+
+        <TextView
+            android:id="@+id/goalsHomeTeam"
+            style="@style/AppTheme.TextViewPlace"
+            android:layout_below="@+id/result"
+            android:text="@{`Goals home team: ` + fixtures.goalsHomeTeam}" />
+
+        <TextView
+            android:id="@+id/goalsAwayTeam"
+            style="@style/AppTheme.TextViewPlace"
+            android:layout_below="@+id/goalsHomeTeam"
+            android:text="@{`Goals away team: ` + fixtures.goalsAwayTeam}" />
+
+
+
+
+
+        <TextView
+            android:id="@+id/halftime"
+            style="@style/AppTheme.TextViewHeader"
+            android:layout_below="@+id/goalsAwayTeam"
+            android:text="@string/halfTimeResult"
+            android:textColor="#7e1417"
+            android:visibility="@{fixtures.goalsHomeTeamHalf == -1 ? View.GONE : View.VISIBLE}"/>
+
+        <TextView
+            android:id="@+id/goalsHomeTeamHalf"
+            style="@style/AppTheme.TextViewPlace"
+            android:layout_below="@+id/halftime"
+            android:text="@{`Goals home team: ` + fixtures.goalsHomeTeamHalf}"
+            android:visibility="@{fixtures.goalsHomeTeamHalf == -1 ? View.GONE : View.VISIBLE}" />
+
+        <TextView
+            android:id="@+id/goalsAwayTeamHalf"
+            style="@style/AppTheme.TextViewPlace"
+            android:layout_below="@+id/goalsHomeTeamHalf"
+            android:text="@{`Goals away team: ` + fixtures.goalsAwayTeamHalf}"
+            android:visibility="@{fixtures.goalsAwayTeamHalf == -1 ? View.GONE : View.VISIBLE}" />
+
+    </RelativeLayout>
+
+</layout>

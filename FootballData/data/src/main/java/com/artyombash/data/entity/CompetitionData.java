@@ -2,12 +2,14 @@ package com.artyombash.data.entity;
 
 import com.google.gson.annotations.SerializedName;
 
+import io.realm.RealmObject;
+
 /**
  * The list representation of this resource is the de-facto entry point to the API and by default
  * returns all available competitions for the current season.
  */
 
-public class CompetitionData {
+public class CompetitionData extends RealmObject {
 
     @SerializedName("id")
     private int id;

@@ -3,7 +3,9 @@ package com.artyombash.data.entity.leagueTable;
 
 import com.google.gson.annotations.SerializedName;
 
-public class AwayData {
+import io.realm.RealmObject;
+
+public class AwayData extends RealmObject {
 
     @SerializedName("goals")
     private Integer goals;

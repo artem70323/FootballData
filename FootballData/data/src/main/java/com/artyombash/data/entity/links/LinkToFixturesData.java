@@ -2,12 +2,14 @@ package com.artyombash.data.entity.links;
 
 import com.google.gson.annotations.SerializedName;
 
+import io.realm.RealmObject;
+
 /**
  * The Fixture resource reflects a scheduled football game. A fixture typically belongs to a
  * competition and is played on a certain matchday. Fixture appears as Main Resource and as
  * Subresource of a Competition.
  */
-public class LinkToFixturesData {
+public class LinkToFixturesData extends RealmObject {
 
     @SerializedName("href")
     private String href;

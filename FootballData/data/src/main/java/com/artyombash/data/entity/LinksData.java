@@ -6,12 +6,14 @@ import com.artyombash.data.entity.links.LinkToTeamsData;
 import com.artyombash.data.entity.links.LinkToSelfData;
 import com.google.gson.annotations.SerializedName;
 
+import io.realm.RealmObject;
+
 /**
  * Links to {@link LinkToSelfData}, {@link LinkToTeamsData}, {@link LinkToFixturesData} and {@link LinkToLeagueTableData} of current
  * competition.
  */
 
-public class LinksData {
+public class LinksData extends RealmObject {
 
     @SerializedName("self")
     private LinkToSelfData self;

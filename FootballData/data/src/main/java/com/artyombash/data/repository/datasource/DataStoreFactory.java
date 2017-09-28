@@ -2,6 +2,7 @@ package com.artyombash.data.repository.datasource;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.util.Log;
 
 import com.artyombash.data.cache.Cache;
 
@@ -18,8 +19,7 @@ public class DataStoreFactory {
     private final CloudDataStore cloudDataStore;
 
     @Inject
-    public DataStoreFactory(@NonNull Context context, @NonNull Cache cache,
-                            CloudDataStore cloudDataStore) {
+    public DataStoreFactory(@NonNull Cache cache, CloudDataStore cloudDataStore) {
         this.cache = cache;
         this.cloudDataStore = cloudDataStore;
     }
@@ -27,13 +27,15 @@ public class DataStoreFactory {
     /**
      * Create {@link DataStore} from a competition id.
      */
-    public DataStore create(int competitionId) {
+    public DataStore create(String id) {
         DataStore userDataStore;
 
-        if (!this.cache.isExpired() && this.cache.isCached(competitionId)) {
+        if (this.cache.isCached(id) && !this.cache.isExpired(id)) {
             userDataStore = new DiskDataStore(this.cache);
+            Log.e("Factory", "DISK");
         } else {
             userDataStore = getCloudDataStore();
+            Log.e("Factory", "CLOUD");
         }
 
         return userDataStore;

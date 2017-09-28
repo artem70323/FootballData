@@ -3,7 +3,9 @@ package com.artyombash.data.entity.links;
 
 import com.google.gson.annotations.SerializedName;
 
-public class LinkToTeamData {
+import io.realm.RealmObject;
+
+public class LinkToTeamData extends RealmObject {
 
     @SerializedName("team")
     private LinkToSelfData team;

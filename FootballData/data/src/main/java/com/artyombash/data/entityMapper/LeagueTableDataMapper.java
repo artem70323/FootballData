@@ -56,6 +56,7 @@ public class LeagueTableDataMapper {
                 standing.setLosses(standingData.getLosses());
                 standing.setHome(transformHomeData(standingData.getHome()));
                 standing.setAway(transformAwayData(standingData.getAway()));
+                standings.add(standing);
             }
         }
         return standings;

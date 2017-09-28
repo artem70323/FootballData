@@ -6,8 +6,16 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class LeagueTableData {
+import io.realm.RealmList;
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+import io.realm.annotations.Required;
 
+public class LeagueTableData extends RealmObject{
+
+    @PrimaryKey
+    @Required
+    private String id;
     @SerializedName("_links")
     private LinksMainData links;
     @SerializedName("leagueCaption")
@@ -15,7 +23,15 @@ public class LeagueTableData {
     @SerializedName("matchday")
     private Integer matchday;
     @SerializedName("standing")
-    private List<StandingData> standing = null;
+    private RealmList<StandingData> standing = null;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public LinksMainData getLinks() {
         return links;
@@ -45,7 +61,7 @@ public class LeagueTableData {
         return standing;
     }
 
-    public void setStanding(List<StandingData> standing) {
+    public void setStanding(RealmList<StandingData> standing) {
         this.standing = standing;
     }
 }

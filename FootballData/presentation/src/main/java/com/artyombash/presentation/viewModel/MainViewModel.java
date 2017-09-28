@@ -63,4 +63,8 @@ public class MainViewModel implements BaseViewModel {
         getCompetitionsUseCase.dispose();
     }
 
+    private void execute() {
+
+    }
+
 }

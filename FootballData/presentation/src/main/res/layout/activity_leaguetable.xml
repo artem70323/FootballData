@@ -4,13 +4,13 @@
 
     <data>
 
-        <import type="com.artyombash.presentation.viewModel.teams.TeamsViewModel.STATE" />
+        <import type="com.artyombash.presentation.viewModel.leagueTable.LeagueTableViewModel.STATE" />
 
         <import type="android.view.View" />
 
         <variable
             name="viewModel"
-            type="com.artyombash.presentation.viewModel.teams.TeamsViewModel" />
+            type="com.artyombash.presentation.viewModel.leagueTable.LeagueTableViewModel" />
     </data>
 
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -31,8 +31,14 @@
             android:visibility="@{viewModel.state == STATE.DATA ? View.VISIBLE : View.GONE}">
 
             <TextView
+                android:id="@+id/leagueCaption"
                 style="@style/AppTheme.TextViewTop"
-                android:text="@{`Number of teams: ` + viewModel.count}" />
+                android:text="@{`Caption of league: ` + viewModel.leagueCaption}" />
+
+            <TextView
+                android:id="@+id/matchday"
+                style="@style/AppTheme.TextViewTop"
+                android:text="@{`Matchday: ` + viewModel.matchday}" />
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/recyclerView"

@@ -3,10 +3,12 @@ package com.artyombash.data.entity.links;
 
 import com.google.gson.annotations.SerializedName;
 
+import io.realm.RealmObject;
+
 /**
  * Link to players.
  */
-public class LinkToPlayersData {
+public class LinkToPlayersData extends RealmObject {
 
     @SerializedName("href")
     private String href;

@@ -9,11 +9,11 @@ import com.facebook.drawee.view.SimpleDraweeView;
 
 public class TeamsItemViewModel extends BaseItemViewModel<Team> {
 
-    public ObservableField<String> name = new ObservableField<>("");
-    public ObservableField<String> code = new ObservableField<>("");
-    public ObservableField<String> shortName = new ObservableField<>("");
-    public ObservableField<String> squadMarketValue = new ObservableField<>("");
-    public String imageUrl;
+    public final ObservableField<String> name = new ObservableField<>("");
+    public final ObservableField<String> code = new ObservableField<>("");
+    public final ObservableField<String> shortName = new ObservableField<>("");
+    public final ObservableField<String> squadMarketValue = new ObservableField<>("");
+    public String crestUrl;
 
 
     @Override
@@ -22,12 +22,12 @@ public class TeamsItemViewModel extends BaseItemViewModel<Team> {
         code.set(item.getCode());
         shortName.set(item.getShortName());
         squadMarketValue.set(item.getSquadMarketValue());
-        imageUrl = item.getCrestUrl();
+        crestUrl = item.getCrestUrl();
     }
 
-    @BindingAdapter({"app:imageUrl"})
-    public static void loadImage(SimpleDraweeView view, String imageUrl) {
-        view.setImageURI(imageUrl);
+    @BindingAdapter({"app:crestUrl"})
+    public static void loadImage(SimpleDraweeView view, String crestUrl) {
+        view.setImageURI(crestUrl);
     }
 
 }

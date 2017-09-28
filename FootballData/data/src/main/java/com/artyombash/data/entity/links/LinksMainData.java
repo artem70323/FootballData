@@ -3,11 +3,13 @@ package com.artyombash.data.entity.links;
 
 import com.google.gson.annotations.SerializedName;
 
+import io.realm.RealmObject;
+
 /**
  * Links to {@link LinkToSelfData} and {@link LinkToCompetitionData}.
  */
 
-public class LinksMainData {
+public class LinksMainData extends RealmObject {
 
     @SerializedName("self")
     private LinkToSelfData self;

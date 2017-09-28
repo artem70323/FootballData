@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="leagueTable"
+            type="com.artyombash.presentation.viewModel.leagueTable.LeagueTableItemViewModel" />
+
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        android:background="#55ffffff">
+
+        <TextView
+            android:id="@+id/position"
+            style="@style/AppTheme.TextViewHeader"
+            android:text="@{`Position: ` + leagueTable.position}" />
+
+
+        <TextView
+            android:id="@+id/teamName"
+            style="@style/AppTheme.TextViewHeader"
+            android:layout_below="@+id/position"
+            android:text="@{`Team name: ` + leagueTable.teamName}" />
+
+
+        <TextView
+            android:id="@+id/playedGames"
+            style="@style/AppTheme.TextViewHeader"
+            android:layout_below="@+id/teamName"
+            android:text="@{`Played games: ` + leagueTable.playedGames}" />
+
+
+        <TextView
+            android:id="@+id/points"
+            style="@style/AppTheme.TextViewHeader"
+            android:layout_below="@+id/playedGames"
+            android:text="@{`Points: ` + leagueTable.points}" />
+
+
+        <TextView
+            android:id="@+id/goals"
+            style="@style/AppTheme.TextViewHeader"
+            android:layout_below="@+id/points"
+            android:text="@{`Goals: ` + leagueTable.goals}" />
+
+
+        <TextView
+            android:id="@+id/goalsAgainst"
+            style="@style/AppTheme.TextViewHeader"
+            android:layout_below="@+id/goals"
+            android:text="@{`Goals against: ` + leagueTable.goalsAgainst}" />
+
+
+        <TextView
+            android:id="@+id/goalDifference"
+            style="@style/AppTheme.TextViewHeader"
+            android:layout_below="@+id/goalsAgainst"
+            android:text="@{`Goal difference: ` + leagueTable.goalDifference}" />
+
+
+        <TextView
+            android:id="@+id/wins"
+            style="@style/AppTheme.TextViewHeader"
+            android:layout_below="@+id/goalDifference"
+            android:text="@{`Wins: ` + leagueTable.wins}" />
+
+        <TextView
+            android:id="@+id/draws"
+            style="@style/AppTheme.TextViewHeader"
+            android:layout_below="@+id/wins"
+            android:text="@{`Draws: ` + leagueTable.draws}" />
+
+        <TextView
+            android:id="@+id/losses"
+            style="@style/AppTheme.TextViewHeader"
+            android:layout_below="@+id/draws"
+            android:text="@{`Losses: ` + leagueTable.losses}" />
+
+
+
+
+
+        <TextView
+            android:id="@+id/home"
+            style="@style/AppTheme.TextViewHeader"
+            android:layout_below="@+id/losses"
+            android:text="@string/home"
+            android:textColor="#158c29" />
+
+        <TextView
+            android:id="@+id/homeGoals"
+            style="@style/AppTheme.TextViewPlace"
+            android:layout_below="@+id/home"
+            android:text="@{`Home goals: ` + leagueTable.homeGoals}" />
+
+        <TextView
+            android:id="@+id/homeGoalsAgainst"
+            style="@style/AppTheme.TextViewPlace"
+            android:layout_below="@+id/homeGoals"
+            android:text="@{`Home goals against: ` + leagueTable.homeGoalsAgainst}" />
+
+        <TextView
+            android:id="@+id/homeWins"
+            style="@style/AppTheme.TextViewPlace"
+            android:layout_below="@+id/homeGoalsAgainst"
+            android:text="@{`Home wins: ` + leagueTable.homeWins}" />
+
+        <TextView
+            android:id="@+id/homeDraws"
+            style="@style/AppTheme.TextViewPlace"
+            android:layout_below="@+id/homeWins"
+            android:text="@{`Home draws: ` + leagueTable.homeDraws}" />
+
+        <TextView
+            android:id="@+id/homeLosses"
+            style="@style/AppTheme.TextViewPlace"
+            android:layout_below="@+id/homeDraws"
+            android:text="@{`Home losses: ` + leagueTable.homeLosses}" />
+
+
+
+
+
+        <TextView
+            android:id="@+id/away"
+            style="@style/AppTheme.TextViewHeader"
+            android:layout_below="@+id/homeLosses"
+            android:text="@string/away"
+            android:textColor="#7e1417" />
+
+        <TextView
+            android:id="@+id/awayGoals"
+            style="@style/AppTheme.TextViewPlace"
+            android:layout_below="@+id/away"
+            android:text="@{`Away goals: ` + leagueTable.awayGoals}" />
+
+        <TextView
+            android:id="@+id/awayGoalsAgainst"
+            style="@style/AppTheme.TextViewPlace"
+            android:layout_below="@+id/awayGoals"
+            android:text="@{`Away goals against: ` + leagueTable.awayGoalsAgainst}" />
+
+        <TextView
+            android:id="@+id/awayWins"
+            style="@style/AppTheme.TextViewPlace"
+            android:layout_below="@+id/awayGoalsAgainst"
+            android:text="@{`Away wins: ` + leagueTable.awayWins}" />
+
+        <TextView
+            android:id="@+id/awayDraws"
+            style="@style/AppTheme.TextViewPlace"
+            android:layout_below="@+id/awayWins"
+            android:text="@{`Away draws: ` + leagueTable.awayDraws}" />
+
+        <TextView
+            android:id="@+id/awayLosses"
+            style="@style/AppTheme.TextViewPlace"
+            android:layout_below="@+id/awayDraws"
+            android:text="@{`Away losses: ` + leagueTable.awayLosses}" />
+
+    </RelativeLayout>
+
+</layout>

@@ -2,11 +2,13 @@ package com.artyombash.data.entity.links;
 
 import com.google.gson.annotations.SerializedName;
 
+import io.realm.RealmObject;
+
 /**
  * Link to competition.
  */
 
-public class LinkToCompetitionData {
+public class LinkToCompetitionData extends RealmObject {
 
     @SerializedName("href")
     private String href;

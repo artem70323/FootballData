@@ -28,21 +28,22 @@ public class DiskDataStore implements DataStore {
 
     @Override
     public Observable<List<CompetitionData>> competitionDataList() {
-        throw new UnsupportedOperationException("Operation is not available!!!");
+        return cache.getCompetitionsData();
     }
 
     @Override
     public Observable<TeamsData> teamsData(int competitionId) {
-        return null;
+        return cache.getTeamsData(competitionId);
     }
 
     @Override
     public Observable<LeagueTableData> leagueTableData(int competitionId) {
-        return null;
+        return cache.getLeagueTableData(competitionId);
     }
 
     @Override
     public Observable<FixturesData> fixturesData(int competitionId) {
-        return null;
+        return cache.getFixturesData(competitionId);
     }
+
 }

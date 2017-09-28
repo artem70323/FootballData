@@ -12,7 +12,7 @@ import com.artyombash.presentation.viewModel.teams.TeamsItemViewModel;
 public class TeamsItemViewHolder extends BaseItemViewHolder<Team,
         TeamsItemViewModel, ItemTeamBinding>{
 
-    public TeamsItemViewHolder(ItemTeamBinding binding,
+    private TeamsItemViewHolder(ItemTeamBinding binding,
                                TeamsItemViewModel viewModel) {
         super(binding, viewModel);
         binding.setTeam(viewModel);

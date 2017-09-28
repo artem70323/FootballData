@@ -5,18 +5,34 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
+import io.realm.RealmList;
+import io.realm.RealmObject;
+import io.realm.annotations.PrimaryKey;
+import io.realm.annotations.Required;
+
 /**
  * List all teams for a certain competition.
  */
 
-public class TeamsData {
+public class TeamsData extends RealmObject {
 
+    @PrimaryKey
+    @Required
+    private String id;
     @SerializedName("_links")
     private LinksMainData links;
     @SerializedName("count")
     private int count;
     @SerializedName("teams")
-    private List<TeamData> teams = null;
+    private RealmList<TeamData> teams = null;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public LinksMainData getLinks() {
         return links;
@@ -38,7 +54,7 @@ public class TeamsData {
         return teams;
     }
 
-    public void setTeams(List<TeamData> teams) {
+    public void setTeams(RealmList<TeamData> teams) {
         this.teams = teams;
     }
 

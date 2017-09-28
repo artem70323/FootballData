@@ -1,9 +1,11 @@
 package com.artyombash.data.repository;
 
 import com.artyombash.data.entity.CompetitionData;
+import com.artyombash.data.entity.fixtures.FixturesData;
 import com.artyombash.data.entity.leagueTable.LeagueTableData;
 import com.artyombash.data.entity.teams.TeamsData;
 import com.artyombash.data.entityMapper.CompetitionDataMapper;
+import com.artyombash.data.entityMapper.FixturesDataMapper;
 import com.artyombash.data.entityMapper.LeagueTableDataMapper;
 import com.artyombash.data.entityMapper.TeamsDataMapper;
 import com.artyombash.data.repository.datasource.DataStore;
@@ -29,10 +31,13 @@ import io.reactivex.functions.Function;
 @Singleton
 public class FootballDataRepository implements FootballRepository{
 
+    private static final String COMPETITIONSID = "http://api.football-data.org/v1/competitions/";
+
     private final DataStoreFactory dataStoreFactory;
     private final CompetitionDataMapper competitionDataMapper;
     private final TeamsDataMapper teamsDataMapper;
     private final LeagueTableDataMapper leagueTableDataMapper;
+    private final FixturesDataMapper fixturesDataMapper;
 
     /**
      * Constructs a {@link FootballRepository}.
@@ -40,21 +45,22 @@ public class FootballDataRepository implements FootballRepository{
      * @param competitionDataMapper {@link CompetitionDataMapper}.
      * @param teamsDataMapper {@link TeamsDataMapper}.
      * @param leagueTableDataMapper {@link LeagueTableDataMapper}.
+     * @param fixturesDataMapper {@link FixturesDataMapper}.
      */
     @Inject
     public FootballDataRepository(DataStoreFactory dataStoreFactory,
                                   CompetitionDataMapper competitionDataMapper,
-                                  TeamsDataMapper teamsDataMapper, LeagueTableDataMapper leagueTableDataMapper) {
+                                  TeamsDataMapper teamsDataMapper, LeagueTableDataMapper leagueTableDataMapper, FixturesDataMapper fixturesDataMapper) {
         this.dataStoreFactory = dataStoreFactory;
         this.competitionDataMapper = competitionDataMapper;
         this.teamsDataMapper = teamsDataMapper;
         this.leagueTableDataMapper = leagueTableDataMapper;
+        this.fixturesDataMapper = fixturesDataMapper;
     }
 
     @Override
     public Observable<List<Competition>> competitions() {
-        //we always get all competitions from the cloud
-        final DataStore dataStore = this.dataStoreFactory.getCloudDataStore();
+        DataStore dataStore = this.dataStoreFactory.create(COMPETITIONSID);
         return dataStore.competitionDataList()
                 .map(new Function<List<CompetitionData>, List<Competition>>() {
             @Override
@@ -66,7 +72,8 @@ public class FootballDataRepository implements FootballRepository{
 
     @Override
     public Observable<Teams> teams(int competitionId) {
-        DataStore dataStore = this.dataStoreFactory.create(competitionId);
+        String newId = COMPETITIONSID + String.valueOf(competitionId) + "/teams";
+        DataStore dataStore = this.dataStoreFactory.create(newId);
         return dataStore.teamsData(competitionId)
                 .map(new Function<TeamsData, Teams>() {
                     @Override
@@ -78,7 +85,8 @@ public class FootballDataRepository implements FootballRepository{
 
     @Override
     public Observable<LeagueTable> leagueTable(int competitionId) {
-        DataStore dataStore = this.dataStoreFactory.create(competitionId);
+        String newId = COMPETITIONSID + String.valueOf(competitionId);
+        DataStore dataStore = this.dataStoreFactory.create(newId);
         return dataStore.leagueTableData(competitionId)
                 .map(new Function<LeagueTableData, LeagueTable>() {
                     @Override
@@ -90,6 +98,15 @@ public class FootballDataRepository implements FootballRepository{
 
     @Override
     public Observable<Fixtures> fixtures(int competitionId) {
-        return null;
+        String newId = COMPETITIONSID + String.valueOf(competitionId) + "/fixtures";
+        DataStore dataStore = this.dataStoreFactory.create(newId);
+        return dataStore.fixturesData(competitionId)
+                .map(new Function<FixturesData, Fixtures>() {
+                    @Override
+                    public Fixtures apply(@NonNull FixturesData fixturesData) throws Exception {
+                        return fixturesDataMapper.transform(fixturesData);
+                    }
+                });
     }
+
 }

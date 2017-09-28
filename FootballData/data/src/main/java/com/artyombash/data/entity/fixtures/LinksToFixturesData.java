@@ -4,7 +4,9 @@ import com.artyombash.data.entity.links.LinkToCompetitionData;
 import com.artyombash.data.entity.links.LinkToSelfData;
 import com.google.gson.annotations.SerializedName;
 
-public class LinksToFixturesData {
+import io.realm.RealmObject;
+
+public class LinksToFixturesData extends RealmObject {
 
     @SerializedName("self")
     private LinkToSelfData self;
